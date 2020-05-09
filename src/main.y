@@ -162,6 +162,7 @@ EXPRESSAO:
 			printf("CMP B, D\n");
 			printf("JNZ LOOP\n");
 			printf("\n");
+		}
 	}
 	| ABREPARENTESE EXPRESSAO FECHAPARENTESE { $$ = $2;}
 	;
