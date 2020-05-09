@@ -144,7 +144,7 @@ EXPRESSAO:
 	}
 	| EXPRESSAO EXPONENCIACAO EXPRESSAO {
 		if($3 == 0){
-			$$ = 0;
+			$$ = 1;
 			printf("MOV A, 1\n");
 			printf("\n");
 		}
