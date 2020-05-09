@@ -143,19 +143,25 @@ EXPRESSAO:
 		
 	}
 	| EXPRESSAO EXPONENCIACAO EXPRESSAO {
-		for(i = 0; i<$3; i++){
-			$$ = $1*$1;
-			i++;		
+		if($3 == 0){
+			$$ = 0;
+			printf("MOV A, 1\n");
+			printf("\n");
 		}
-		printf("MOV A, 1\n");
-		printf("MOV B, 0\n");
-		printf("MOV C, %d\n", $1);
-		printf("MOV D, %d\n", $3);
-		printf("LOOP: MUL C\n");
-		printf("SUB D, 1\n");
-		printf("CMP B, D\n");
-		printf("JNZ LOOP\n");
-		printf("\n");
+		else{
+
+			for(i = 0; i<$3-1; i++){
+				$$ = $$*$1;		
+			}
+			printf("MOV A, 1\n");
+			printf("MOV B, 0\n");
+			printf("MOV C, %d\n", $1);
+			printf("MOV D, %d\n", $3);
+			printf("LOOP: MUL C\n");
+			printf("SUB D, 1\n");
+			printf("CMP B, D\n");
+			printf("JNZ LOOP\n");
+			printf("\n");
 	}
 	| ABREPARENTESE EXPRESSAO FECHAPARENTESE { $$ = $2;}
 	;
