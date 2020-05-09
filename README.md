@@ -1,5 +1,5 @@
 #### IDENTIFICACAO ####
-Luiz Guilherme Silva Moreira RA:202391
+Luiz Guilherme Silva Moreira RA: 202391
 Ian Goulart Doretto RA: 174827
 #### ARQUIVO DE INSTRUCOES ####
 
