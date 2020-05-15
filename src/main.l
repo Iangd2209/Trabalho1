@@ -1,7 +1,7 @@
 %{
 #include <stdlib.h>
-void yyerror(char *c);
 #include "y.tab.h"
+void yyerror(char *c);
 int val_erro = 0;
 %}
 
@@ -19,8 +19,8 @@ int val_erro = 0;
 	return SOMA;
 }
 
-[-] {
-     return SUBTRACAO;
+[/] {
+     return DIVISAO;
 }
 
 [*] {
