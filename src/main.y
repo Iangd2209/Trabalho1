@@ -3,26 +3,32 @@
 
 void yyerror(char *c);
 int yylex(void);
+/* Variavel auxiliadora */
 int i = 0;
 %}
 
-%token INTEIRO SOMA SUBTRACAO MULTIPLICACAO EXPONENCIACAO ABREPARENTESE FECHAPARENTESE FIMDELINHA
+/* Declaracao dos tokens da calculadora */
+%token INTEIRO SOMA DIVISAO MULTIPLICACAO EXPONENCIACAO ABREPARENTESE FECHAPARENTESE FIMDELINHA
+
+/* Ordem de prioridade (baixo para cima) */
 %left SOMA
 %left MULTIPLICACAO DIVISAO
 %left EXPONENCIACAO 
 %left ABREPARENTESE FECHAPARENTESE
 
-
-
 %%
 
+/* Setenca global */
 SENTENCA:
 	SENTENCA EXPRESSAO FIMDELINHA {$$ = $2; printf("HLT\n");}
 	|
 	;
 
+/* Expressoes */
 EXPRESSAO:
+	/* Tratamento dos numeros */
 	INTEIRO {$$ = $1;}
+	/* Expressao de SOMA */
 	| EXPRESSAO SOMA EXPRESSAO {
 		$$ = $1 + $3;
 		printf("MOV B, %d\n", $1);
@@ -31,6 +37,7 @@ EXPRESSAO:
 		printf("MOV A, B\n");
 		printf("\n");
 	}
+	/* Expressao de MULTIPLICACAO */
 	| EXPRESSAO MULTIPLICACAO EXPRESSAO {
 		$$ = $1 * $3;
 		printf("MOV B, %d\n", $1);
@@ -38,6 +45,7 @@ EXPRESSAO:
 		printf("MUL B\n");
 		printf("\n");
 	}
+	/* Expressao de DIVISAO */
 	| EXPRESSAO DIVISAO EXPRESSAO {
 		$$ = $1 / $3;
 		printf("MOV B, %d\n", $1);
@@ -46,6 +54,7 @@ EXPRESSAO:
 		printf("\n");
 		/* Consideracao: Nao se pode ter $1 < $3 pois isso resultaria em um numero nao inteiro */
 	}
+	/* Expressao de EXPONENCIACAO */
 	| EXPRESSAO EXPONENCIACAO EXPRESSAO {
 		if($3 == 0){
 			$$ = 1;
@@ -68,6 +77,8 @@ EXPRESSAO:
 			printf("\n");
 		}
 	}
+
+	/* Prioridade dos parenteses */
 	| ABREPARENTESE EXPRESSAO FECHAPARENTESE { $$ = $2;}
 	;
 	

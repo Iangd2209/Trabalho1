@@ -1,6 +1,7 @@
 #### IDENTIFICACAO ####
 Luiz Guilherme Silva Moreira RA: 202391
 Ian Goulart Doretto RA: 174827
+
 #### ARQUIVO DE INSTRUCOES ####
 
 - No diretório ".../Trabalho1/" digite o comando make para compilar todos os arquivos;
@@ -20,3 +21,6 @@ https://schweigi.github.io/assembler-simulator/
 - A calculadora também suporta o uso de parenteses () nas expressões;
 - Os números devem ser inteiros e positivos;
 - Qualquer outro formato de instrução que não seja o citado não funcionará e acarretará erro de sintaxe.
+- Em nosso projeto que exponenciacoes devem ser feitas primeiro; ao passo que somas devem ser feitas por ultimo.
+- Para a nossa solucao nao utilizamos o acesso a memoria; buscamos uma solucao simples e eficaz que somente usa comandos simples para resolucionar a equacao, poupando desempenho e uso de memoria.
+
