@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "y.tab.h"
 void yyerror(char *c);
+/* Variavel auxiliadora */
 int val_erro = 0;
 %}
 
