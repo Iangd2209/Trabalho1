@@ -14,8 +14,8 @@ https://schweigi.github.io/assembler-simulator/
 #### INSTRUCOES VALIDAS E CONSIDERACOES ####
 - A calculadora é capaz de realizar:
 * Soma: echo "NUMERO1 + NUMERO2" | ./main
-* Subtracao: echo "NUMERO1 - NUMERO2" | ./main
 * Multiplicacao: echo "NUMERO1 * NUMERO2" | ./main
+* Divisao: echo "NUMERO1 / NUMERO2" | ./main
 * Exponenciacao: echo "NUMERO1 ^ NUMERO2" | ./main
 - A calculadora também suporta o uso de parenteses () nas expressões;
 - Os números devem ser inteiros e positivos;
